@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.form-control.positive {
+  background-color: green;
+  color: white;
+}
+
+.form-control.negative {
+  background-color: red;
+  color: white;
+}
+
+form {
+  width: 100px;
+  margin: 15px auto 0 auto;
+}
+
+.total {
+  color: black;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
