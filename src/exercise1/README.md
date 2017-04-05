@@ -42,3 +42,6 @@ the component
 ## Solution
 
 Switch to the branch `solutions` and look at the files `src/index.js`, `src/exercise1/App.js' and `src/exercise1/reducer.js` 
+
+Note that it looks as though Redux *adds* complexity here, rather than simplifying the application. This is because the 
+example is intentionally simple and only for illustrative purposes; in the real world, Redux would be overkill for such an application.
