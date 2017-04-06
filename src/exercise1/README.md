@@ -37,7 +37,7 @@ Once you've finished the implementation, try the following:
 state. Note that interacting with the app will change the application state, but these changes are never passed down as props to 
 the component
 
-2. In your reducer, try changing the `switch` cases so that the state is mutated directly, rather than returning a new object. What happens?
+TODO Add more
 
 ## Solution
 
