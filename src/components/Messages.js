@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 // Components
-import Message from './Message.ex1';
+import Message from './Message';
 
 class Messages extends Component {
 

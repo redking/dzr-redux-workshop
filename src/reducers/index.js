@@ -3,16 +3,34 @@ const initialState = {
 	color: 'black'
 };
 
-// The application reducer. If the state should change, you must return a new object. Use the spread operator
-// to do this
 export default (state = initialState, action) => {
 	switch (action.type) {
 
 		case 'ADD_MESSAGE':
-			// Return new state here with new message added to the start, if the message is non-empty
+			if (action.message.text) {
+				return {
+					...state,
+					messages: [action.message, ...state.messages]
+				};
+
+				// Without using the spread operator, you could also write it like so:
+				//
+				// const messages = state.messages.slice();
+				// messages.unshift(action.message);
+				//
+				// return {
+				// 		...state,
+				// 		messages
+				// };
+			}
+
+			return state;
 
 		case 'CHANGE_COLOR':
-			// Return state here with color changed
+			return {
+				...state,
+				color: action.color
+			};
 
 		default:
 			return state;
