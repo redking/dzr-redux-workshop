@@ -14,26 +14,45 @@
   color: white;
 }
 
-.form-control.positive {
-  background-color: green;
-  color: white;
+.room {
+  border: 2px inset #ccc;
+  overflow: auto;
+  height: 300px;
+  margin: 10px;
+  padding: 5px;
+  font-size: 18px;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.form-control.negative {
-  background-color: red;
-  color: white;
+.message {
+  padding: 5px;
 }
 
-form {
-  width: 100px;
-  margin: 15px auto 0 auto;
+.message p {
+  text-align: left;
 }
 
-.total {
-  color: black;
+.message .controls {
+  border-bottom: 1px dotted #999;
+}
+
+#message-input {
+  margin-right: 5px;
+}
+
+aside {
+  font-size: 12px;
+  font-style: italic;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* sm */
+@media (min-width: 768px) {
+  #message-input {
+    width: 50%;
+  }
 }

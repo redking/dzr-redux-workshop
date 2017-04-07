@@ -13,10 +13,12 @@ designed to illuminate some of the ideas behind Redux.
 3. Launch the tests with `npm test`
 4. [Install the Redux Development Tools extension for Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 
-## Changing exercise
+## Description
 
-Modify the import at the top of `src/index.js`.
+A pretend Redux "chatroom" - just a div that displays the text and timestamp for added messages. A button at the bottom lets you
+cycle through different colors for the site header.
+
 
 ## Links
 
-- Redux documentation http://redux.js.org/docs
+- [Redux documentation](http://redux.js.org/docs)
