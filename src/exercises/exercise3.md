@@ -20,3 +20,7 @@ to return to the previous state after every add or delete
 Take a look at the reducers in the Todo example 
 
 https://github.com/reactjs/redux/tree/master/examples/todos/src/reducers
+
+## Solution
+
+Switch to the branch `ex3-solution`.
