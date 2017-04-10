@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
 // Application
-import ChatRoom from './components/ChatRoom.solution';
+import ChatRoom from './components/ChatRoom';
 import './index.css';
 
 // Reducers
-import reducers from './reducers/index.solution';
+import reducers from './reducers/index';
 
 // Create store from reducer and enable Redux devtools
 const store = createStore(
