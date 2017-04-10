@@ -9,11 +9,38 @@ export default (state = initialState, action) => {
 	switch (action.type) {
 
 		case 'ADD_MESSAGE':
-			// If the message text is non-empty, return a new state object here with the message added to the start.
-			// If the message text is empty, return the existing state unaltered.
+			if (action.message.text) {
+				return {
+					...state,
+					messages: [action.message, ...state.messages]
+				};
+			}
+
+			return state;
+
+		case 'DELETE_MESSAGE':
+			return {
+				...state,
+				messages: [
+					...state.messages.slice(0, action.index),
+					...state.messages.slice(action.index + 1)
+				]
+			};
+
+		// Without using the spread operator, you could also do it this way
+		// let messages = state.messages.slice(0);
+		// messages.splice(action.index, 1);
+		//
+		// return {
+		// 	...state,
+		// 	messages
+		// };
 
 		case 'CHANGE_COLOR':
-			// Return state here with color changed
+			return {
+				...state,
+				color: action.color
+			};
 
 		default:
 			return state;

@@ -11,7 +11,6 @@ class ChatRoom extends Component {
 		super(props);
 
 		this.state = {
-			messages: [],
 			colorIndex: 0
 		};
 	}
@@ -21,18 +20,17 @@ class ChatRoom extends Component {
 	};
 
 	render() {
-		const {colors} = this.props;
-		const {colorIndex, messages} = this.state;
+		const {color, messages} = this.props;
 
 		return (
 			<div>
-				<header className="App-header" style={{backgroundColor: colors[colorIndex]}}>
+				<header className="App-header" style={{backgroundColor: color}}>
 					<img src={logo} className="App-logo" alt="logo" />
 					<h2>Redux Chatroom</h2>
 				</header>
 				<div className="container">
 					<div className="col-xs-12">
-						<Messages messages={messages} />
+						<Messages messages={messages} onDeleteMessage={this.props.onDeleteMessage} />
 					</div>
 					<div className="col-xs-12">
 						<form className="form-inline">
@@ -43,7 +41,7 @@ class ChatRoom extends Component {
 						</form>
 						<hr />
 						<button type="button" className="btn btn-default cycle" onClick={e => this._changeColor()}>
-							<i className="fa fa-circle" style={{color: colors[colorIndex]}} /> Change header color
+							<i className="fa fa-circle" style={{color: color}} /> Change header color
 						</button>
 					</div>
 				</div>
@@ -54,25 +52,19 @@ class ChatRoom extends Component {
 	// -- Private methods --
 
 	_addMessage() {
-		const text = this.refs.message.value;
-		if (!text) {
-			return;
-		}
-
-		const {messages} = this.state;
-		messages.unshift({
+		this.props.onAddMessage({
 			text: this.refs.message.value,
 			date: new Date().toLocaleString()
 		});
 		this.refs.message.value = '';
-
-		this.setState({messages});
 	}
 
 	_changeColor() {
-		this.setState({
-			colorIndex: ++this.state.colorIndex % this.props.colors.length
-		});
+		const {colors} = this.props;
+		const colorIndex = ++this.state.colorIndex % colors.length;
+
+		this.props.onChangeColor(colors[colorIndex]);
+		this.setState({colorIndex});
 	}
 }
 
