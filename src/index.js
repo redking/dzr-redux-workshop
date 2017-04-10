@@ -4,11 +4,11 @@ import thunkMiddleware from 'redux-thunk';
 import {createStore, applyMiddleware, compose} from 'redux';
 
 // Application
-import ChatRoom from './components/ChatRoom.solution';
+import ChatRoom from './components/ChatRoom';
 import './index.css';
 
 // Reducers
-import rootReducer from './reducers/index.solution';
+import rootReducer from './reducers/index';
 
 // Create store from reducer and enable Redux devtools
 const store = createStore(rootReducer, compose(
@@ -26,7 +26,9 @@ function _fetchStatus(done) {
 	}, 2000);
 }
 
-const _fetch = () => dispatch => _fetchStatus(loggedIn => dispatch({type: 'UPDATE_LOGIN_STATUS', loggedIn}));
+const _fetch = () => dispatch => {
+	_fetchStatus(loggedIn => dispatch({type: 'UPDATE_LOGIN_STATUS', loggedIn}))
+};
 
 const render = () => {
 
