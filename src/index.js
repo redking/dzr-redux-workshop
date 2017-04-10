@@ -1,19 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import {createStore, applyMiddleware, compose} from 'redux';
 
 // Application
 import ChatRoom from './components/ChatRoom.solution';
 import './index.css';
 
 // Reducers
-import reducers from './reducers/index.solution';
+import rootReducer from './reducers/index.solution';
 
 // Create store from reducer and enable Redux devtools
-const store = createStore(
-	reducers,
+const store = createStore(rootReducer, compose(
+
+	applyMiddleware(thunkMiddleware),
+
+	// Enable development tools
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+));
+
+// Fake async process
+function _fetchStatus(done) {
+	setTimeout(() => {
+		done(true);
+	}, 2000);
+}
+
+const _fetch = () => dispatch => _fetchStatus(loggedIn => dispatch({type: 'UPDATE_LOGIN_STATUS', loggedIn}));
 
 const render = () => {
 
@@ -22,6 +35,7 @@ const render = () => {
 	ReactDOM.render(
 		<div className="App">
 			<ChatRoom {...state}
+				onFetchStatus={() => store.dispatch(_fetch())}
 				onAddMessage={message => store.dispatch({ type: 'ADD_MESSAGE', message})}
 				onDeleteMessage={index => store.dispatch({ type: 'DELETE_MESSAGE', index})}
 				onUndoMessage={() => store.dispatch({ type: 'UNDO_MESSAGE'})}

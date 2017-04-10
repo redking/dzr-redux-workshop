@@ -1,1 +1,1 @@
-## Exercise 6 - Selectors
+# Exercise 6 - Selectors

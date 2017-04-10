@@ -1,1 +1,1 @@
-## Exercise 8 - Normalizing Data
+# Exercise 8 - Normalizing Data

@@ -19,14 +19,20 @@ class ChatRoom extends Component {
 		colors: ['black', 'green', 'pink']
 	};
 
+	componentWillMount() {
+		console.info(this.props.onFetchStatus.toString())
+		this.props.onFetchStatus();
+	}
+
 	render() {
-		const {color, messages} = this.props;
+		const {color, messages, user} = this.props;
 
 		return (
 			<div>
 				<header className="App-header" style={{backgroundColor: color}}>
 					<img src={logo} className="App-logo" alt="logo" />
 					<h2>Redux Chatroom</h2>
+					<span className="badge">{user.loggedIn ? 'Logged in' : 'Logged out'}</span>
 				</header>
 				<div className="container">
 					<div className="col-xs-12">
