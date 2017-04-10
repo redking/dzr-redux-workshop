@@ -1,4 +1,6 @@
-## Exercise 2 - Deleting Messages in State
+# Exercise 2 - Deleting Messages in State
+
+## Task
 
 Open the `Message.js` component and add the following before the `<aside>` tag
  
@@ -22,3 +24,7 @@ You'll have to make changes to the following files
 
 4. `src/reducers/index.js` -> Add a new case to the reducer that deletes the message. You'll need to know the message index. Don't forget to return a
 new object - you can't modify the state directly. 
+
+## Solution
+
+Switch to the branch `ex2-solution`.

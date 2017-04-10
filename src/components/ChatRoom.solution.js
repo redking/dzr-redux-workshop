@@ -43,6 +43,9 @@ class ChatRoom extends Component {
 						<button type="button" className="btn btn-default cycle" onClick={e => this._changeColor()}>
 							<i className="fa fa-circle" style={{color: color}} /> Change header color
 						</button>
+						<button type="button" className="btn btn-default cycle" onClick={e => this.props.onUndoMessage()}>
+							<i className="fa fa-undo" /> Undo
+						</button>
 					</div>
 				</div>
 			</div>

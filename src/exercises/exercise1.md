@@ -1,5 +1,7 @@
 # Exercise 1 - Redux State and Actions
 
+## Task
+
 Migrate the application to use Redux, introducing an application-level store to hold state, where appropriate. The application 
 state should have the following shape:
 
