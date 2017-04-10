@@ -9,7 +9,8 @@ export default (state = initialState, action) => {
 	switch (action.type) {
 
 		case 'ADD_MESSAGE':
-			// Return new state here with new message added to the start, if the message is non-empty
+			// If the message text is non-empty, return a new state object here with the message added to the start.
+			// If the message text is empty, return the existing state unaltered.
 
 		case 'CHANGE_COLOR':
 			// Return state here with color changed

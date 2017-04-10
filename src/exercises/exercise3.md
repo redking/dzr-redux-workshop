@@ -1,1 +1,1 @@
-## Exercise 3 - React and Redux
+## Exercise 3 - Combining Reducers

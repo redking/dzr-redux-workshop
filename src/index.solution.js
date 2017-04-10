@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
 
 // Application
-import ChatRoom from './components/ChatRoom.ex1.solution';
+import ChatRoom from './components/ChatRoom.solution';
 import './index.css';
 
 // Reducers
-import reducers from './reducers';
+import reducers from './reducers/index.solution';
 
 // Create store from reducer and enable Redux devtools
 const store = createStore(
@@ -23,6 +23,7 @@ const render = () => {
 		<div className="App">
 			<ChatRoom {...state}
 				onAddMessage={message => store.dispatch({ type: 'ADD_MESSAGE', message})}
+				onDeleteMessage={index => store.dispatch({ type: 'DELETE_MESSAGE', index})}
 				onChangeColor={color => store.dispatch({ type: 'CHANGE_COLOR', color})} />
 		</div>,
 		document.getElementById('root')

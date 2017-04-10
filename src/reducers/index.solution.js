@@ -18,6 +18,24 @@ export default (state = initialState, action) => {
 
 			return state;
 
+		case 'DELETE_MESSAGE':
+			return {
+				...state,
+				messages: [
+					...state.messages.slice(0, action.index),
+					...state.messages.slice(action.index + 1)
+				]
+			};
+
+			// Without using the spread operator, you could also do it this way
+			// let messages = state.messages.slice(0);
+			// messages.splice(action.index, 1);
+			//
+			// return {
+			// 	...state,
+			// 	messages
+			// };
+
 		case 'CHANGE_COLOR':
 			return {
 				...state,

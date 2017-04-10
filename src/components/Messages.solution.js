@@ -6,14 +6,14 @@ import Message from './Message.solution';
 class Messages extends Component {
 
 	render() {
-		const {messages} = this.props;
+		const {messages, onDeleteMessage} = this.props;
 
 		return (
 			<ol className="room list-unstyled">
 				{!messages.length ? <li><i className="fa fa-exclamation-triangle" /> No messages :'(</li> : null}
 				{messages.map((message, i) =>
 					<li key={'message_' + i}>
-						<Message {...message} />
+						<Message {...message} index={i} onDeleteMessage={onDeleteMessage} />
 					</li>
 				)}
 			</ol>

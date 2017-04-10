@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 
 // components
-import Messages from './Messages';
+import Messages from './Messages.solution';
 
 class ChatRoom extends Component {
 
@@ -30,7 +30,7 @@ class ChatRoom extends Component {
 				</header>
 				<div className="container">
 					<div className="col-xs-12">
-						<Messages messages={messages} />
+						<Messages messages={messages} onDeleteMessage={this.props.onDeleteMessage} />
 					</div>
 					<div className="col-xs-12">
 						<form className="form-inline">

@@ -50,6 +50,11 @@ aside {
   to { transform: rotate(360deg); }
 }
 
+button {
+  background: none;
+  border: 0;
+}
+
 /* sm */
 @media (min-width: 768px) {
   #message-input {
