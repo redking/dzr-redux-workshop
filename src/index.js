@@ -5,11 +5,11 @@ import thunkMiddleware from 'redux-thunk';
 import {createStore, applyMiddleware, compose} from 'redux';
 
 // Application
-import ChatRoom from './components/ChatRoom.solution';
+import ChatRoom from './components/ChatRoom';
 import './index.css';
 
 // Reducers
-import rootReducer from './reducers/index.solution';
+import rootReducer from './reducers/index';
 
 // Create store from reducer and enable Redux devtools
 const store = createStore(rootReducer, compose(
