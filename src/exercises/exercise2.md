@@ -27,4 +27,4 @@ new object - you can't modify the state directly.
 
 ## Solution
 
-Switch to the branch `ex2-solution`.
+Switch to the branch `ex2-solution` on GitHub

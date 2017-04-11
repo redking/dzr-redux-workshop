@@ -1,9 +1,13 @@
+const ADD_MESSAGE = '@deezer/reducers/messages/ADD_MESSAGE';
+const DELETE_MESSAGE = '@deezer/reducers/messages/DELETE_MESSAGE';
+const UNDO_MESSAGE = '@deezer/reducers/messages/UNDO_MESSAGE';
+
 const history = [];
 
 export default (state = [], action) => {
 	switch (action.type) {
 
-		case 'ADD_MESSAGE':
+		case ADD_MESSAGE:
 			if (action.message.text) {
 				history.push(state);
 				return [
@@ -14,14 +18,14 @@ export default (state = [], action) => {
 
 			return state;
 
-		case 'DELETE_MESSAGE':
+		case DELETE_MESSAGE:
 			history.push(state);
 			return [
 				...state.slice(0, action.index),
 				...state.slice(action.index + 1)
 			];
 
-		case 'UNDO_MESSAGE':
+		case UNDO_MESSAGE:
 			if (history.length) {
 				return history.pop();
 			}
@@ -32,3 +36,21 @@ export default (state = [], action) => {
 			return state;
 	}
 }
+
+//
+// Action creators
+//
+
+export const addMessage = message => ({
+	type: ADD_MESSAGE,
+	message
+});
+
+export const deleteMessage = index => ({
+	type: DELETE_MESSAGE,
+	index
+});
+
+export const undoMessage = () => ({
+	type: UNDO_MESSAGE
+});

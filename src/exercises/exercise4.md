@@ -17,9 +17,7 @@ For an asynchronous process, we instead dispatch a function that returns a funct
 ```
 function _doSomething() {
 	return dispatch => {
-		_someAsynchronousProcess(value => {
-			return dispatch({type: 'UPDATE_LOGIN_STATUS', loggedIn});
-		});
+		_someAsynchronousProcess(value => dispatch({type: 'UPDATE_LOGIN_STATUS', loggedIn}));
 	}
 }
 
@@ -81,4 +79,4 @@ to the action `UPDATE_LOGIN_STATUS`
 
 ## Solution
 
-Switch to branch `ex4-solution`
+Switch to branch `ex4-solution` on GitHub

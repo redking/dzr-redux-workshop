@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
+// Assets
 import logo from '../logo.svg';
 import '../App.css';
 
-// components
+// Components
 import Messages from './Messages.solution';
+
+// Actions
+import {addMessage, deleteMessage, undoMessage} from '../reducers/messages';
+import {changeColor} from '../reducers/color';
+import {fetchStatus} from '../reducers/user';
 
 class ChatRoom extends Component {
 
@@ -20,8 +28,7 @@ class ChatRoom extends Component {
 	};
 
 	componentWillMount() {
-		console.info(this.props.onFetchStatus.toString())
-		this.props.onFetchStatus();
+		this.props.fetchStatus();
 	}
 
 	render() {
@@ -36,7 +43,7 @@ class ChatRoom extends Component {
 				</header>
 				<div className="container">
 					<div className="col-xs-12">
-						<Messages messages={messages} onDeleteMessage={this.props.onDeleteMessage} />
+						<Messages messages={messages} onDeleteMessage={this.props.deleteMessage} />
 					</div>
 					<div className="col-xs-12">
 						<form className="form-inline">
@@ -49,7 +56,7 @@ class ChatRoom extends Component {
 						<button type="button" className="btn btn-default cycle" onClick={e => this._changeColor()}>
 							<i className="fa fa-circle" style={{color: color}} /> Change header color
 						</button>
-						<button type="button" className="btn btn-default cycle" onClick={e => this.props.onUndoMessage()}>
+						<button type="button" className="btn btn-default cycle" onClick={e => this.props.undoMessage()}>
 							<i className="fa fa-undo" /> Undo
 						</button>
 					</div>
@@ -61,7 +68,7 @@ class ChatRoom extends Component {
 	// -- Private methods --
 
 	_addMessage() {
-		this.props.onAddMessage({
+		this.props.addMessage({
 			text: this.refs.message.value,
 			date: new Date().toLocaleString()
 		});
@@ -72,9 +79,15 @@ class ChatRoom extends Component {
 		const {colors} = this.props;
 		const colorIndex = ++this.state.colorIndex % colors.length;
 
-		this.props.onChangeColor(colors[colorIndex]);
+		this.props.changeColor(colors[colorIndex]);
 		this.setState({colorIndex});
 	}
 }
 
-export default ChatRoom;
+const mapStateToProps = state => ({
+	color: state.color,
+	messages: state.messages,
+	user: state.user
+});
+
+export default connect(mapStateToProps, {addMessage, deleteMessage, undoMessage, changeColor, fetchStatus})(ChatRoom);

@@ -37,7 +37,7 @@ Once the store is setup, you can open the Chrome console and select the Redux ta
 
 ## Solution
 
-Switch to the branch `ex1-solution` and look at the files `src/index.js`, `src/components/ChatRoom.js` and `src/reducers/index.js` 
+Switch to the branch `ex1-solution` on GitHub and look at the files `src/index.js`, `src/components/ChatRoom.js` and `src/reducers/index.js` 
 
 Note that in this example Redux *adds* complexity, rather than simplifying the application. This is because the 
 example is intentionally simple and only for illustrative purposes; in the real world, Redux would be overkill for such an application.

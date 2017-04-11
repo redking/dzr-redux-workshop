@@ -23,4 +23,4 @@ https://github.com/reactjs/redux/tree/master/examples/todos/src/reducers
 
 ## Solution
 
-Switch to the branch `ex3-solution`.
+Switch to the branch `ex3-solution` on GitHub
