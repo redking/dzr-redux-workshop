@@ -56,3 +56,7 @@ after the login status
 ```
 <span className="badge">{this.props.deezerCount} Deezer references</span>
 ```
+
+## Solution
+
+Switch to branch `ex6-solution` on GitHub.
