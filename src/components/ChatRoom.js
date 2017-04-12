@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+
+// Assets
 import logo from '../logo.svg';
 import '../App.css';
 
-// components
+// Components
 import Messages from './Messages';
+
+// Actions
+import {addMessage, deleteMessage, undoMessage, getDeezerCount} from '../reducers/messages';
+import {changeColor} from '../reducers/color';
+import {fetchStatus} from '../reducers/user';
 
 class ChatRoom extends Component {
 
@@ -11,7 +19,6 @@ class ChatRoom extends Component {
 		super(props);
 
 		this.state = {
-			messages: [],
 			colorIndex: 0
 		};
 	}
@@ -20,19 +27,24 @@ class ChatRoom extends Component {
 		colors: ['black', 'green', 'pink']
 	};
 
+	componentWillMount() {
+		this.props.fetchStatus();
+	}
+
 	render() {
-		const {colors} = this.props;
-		const {colorIndex, messages} = this.state;
+		const {color, messages, user, deezerCount} = this.props;
 
 		return (
 			<div>
-				<header className="App-header" style={{backgroundColor: colors[colorIndex]}}>
+				<header className="App-header" style={{backgroundColor: color}}>
 					<img src={logo} className="App-logo" alt="logo" />
 					<h2>Redux Chatroom</h2>
+					<span className="badge">{user.loggedIn ? 'Logged in' : 'Logged out'}</span>
+					<span className="badge">{deezerCount} Deezer references</span>
 				</header>
 				<div className="container">
 					<div className="col-xs-12">
-						<Messages messages={messages} />
+						<Messages messages={messages} onDeleteMessage={this.props.deleteMessage} />
 					</div>
 					<div className="col-xs-12">
 						<form className="form-inline">
@@ -43,7 +55,10 @@ class ChatRoom extends Component {
 						</form>
 						<hr />
 						<button type="button" className="btn btn-default cycle" onClick={e => this._changeColor()}>
-							<i className="fa fa-circle" style={{color: colors[colorIndex]}} /> Change header color
+							<i className="fa fa-circle" style={{color: color}} /> Change header color
+						</button>
+						<button type="button" className="btn btn-default cycle" onClick={e => this.props.undoMessage()}>
+							<i className="fa fa-undo" /> Undo
 						</button>
 					</div>
 				</div>
@@ -54,26 +69,27 @@ class ChatRoom extends Component {
 	// -- Private methods --
 
 	_addMessage() {
-		const text = this.refs.message.value;
-		if (!text) {
-			return;
-		}
-
-		const {messages} = this.state;
-		messages.unshift({
+		this.props.addMessage({
 			text: this.refs.message.value,
-			date: new Date().toLocaleString()
+			date: new Date().toString()
 		});
 		this.refs.message.value = '';
-
-		this.setState({messages});
 	}
 
 	_changeColor() {
-		this.setState({
-			colorIndex: ++this.state.colorIndex % this.props.colors.length
-		});
+		const {colors} = this.props;
+		const colorIndex = ++this.state.colorIndex % colors.length;
+
+		this.props.changeColor(colors[colorIndex]);
+		this.setState({colorIndex});
 	}
 }
 
-export default ChatRoom;
+const mapStateToProps = state => ({
+	color: state.color,
+	messages: state.messages,
+	user: state.user,
+	deezerCount: getDeezerCount(state)
+});
+
+export default connect(mapStateToProps, {addMessage, deleteMessage, undoMessage, changeColor, fetchStatus})(ChatRoom);
