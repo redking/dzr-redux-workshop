@@ -107,6 +107,23 @@ means that in our code we must use `this.props.addMessage` rather than the `addM
  
 5. Finally, change the references to the action creators in the existing code (from `this.props.onAddMessage` to `this.props.onAddMessage`, for example).
 
+### Step 4 - Test with mutated state
+
+Open the `messages.js` reducer. When we add a new message, we use the spread operator to always return a new object. Replace this with a
+state mutation instead
+
+```
+case ADD_MESSAGE:
+if (action.message.text) {
+	history.push(state);
+	state.push(action.message)
+}
+
+return state;
+```
+
+Now reload the page and try to add a message. Why does it no longer work? 
+
 ## Solution
 
 For an example solution, open branch `ex5-solution` on GitHub.

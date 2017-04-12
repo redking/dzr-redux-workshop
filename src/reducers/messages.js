@@ -1,3 +1,5 @@
+import {createSelector} from 'reselect';
+
 const ADD_MESSAGE = '@deezer/reducers/messages/ADD_MESSAGE';
 const DELETE_MESSAGE = '@deezer/reducers/messages/DELETE_MESSAGE';
 const UNDO_MESSAGE = '@deezer/reducers/messages/UNDO_MESSAGE';
@@ -54,3 +56,14 @@ export const deleteMessage = index => ({
 export const undoMessage = () => ({
 	type: UNDO_MESSAGE
 });
+
+//
+// Selectors
+//
+
+const getMessages = state => state.messages;
+
+export const getDeezerCount = createSelector(
+	getMessages,
+	messages => messages.reduce((total, message) => total + (message.text.toLowerCase().match(/deezer/g) || []).length, 0)
+);

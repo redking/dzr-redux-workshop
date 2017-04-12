@@ -9,7 +9,7 @@ import '../App.css';
 import Messages from './Messages.solution';
 
 // Actions
-import {addMessage, deleteMessage, undoMessage} from '../reducers/messages';
+import {addMessage, deleteMessage, undoMessage, getDeezerCount} from '../reducers/messages';
 import {changeColor} from '../reducers/color';
 import {fetchStatus} from '../reducers/user';
 
@@ -32,7 +32,7 @@ class ChatRoom extends Component {
 	}
 
 	render() {
-		const {color, messages, user} = this.props;
+		const {color, messages, user, deezerCount} = this.props;
 
 		return (
 			<div>
@@ -40,6 +40,7 @@ class ChatRoom extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<h2>Redux Chatroom</h2>
 					<span className="badge">{user.loggedIn ? 'Logged in' : 'Logged out'}</span>
+					<span className="badge">{deezerCount} Deezer references</span>
 				</header>
 				<div className="container">
 					<div className="col-xs-12">
@@ -70,7 +71,7 @@ class ChatRoom extends Component {
 	_addMessage() {
 		this.props.addMessage({
 			text: this.refs.message.value,
-			date: new Date().toLocaleString()
+			date: new Date().toString()
 		});
 		this.refs.message.value = '';
 	}
@@ -87,7 +88,8 @@ class ChatRoom extends Component {
 const mapStateToProps = state => ({
 	color: state.color,
 	messages: state.messages,
-	user: state.user
+	user: state.user,
+	deezerCount: getDeezerCount(state)
 });
 
 export default connect(mapStateToProps, {addMessage, deleteMessage, undoMessage, changeColor, fetchStatus})(ChatRoom);
