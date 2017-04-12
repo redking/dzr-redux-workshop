@@ -69,7 +69,7 @@ Since we return a new object every time, how would you implement `shouldComponen
 
 ## Solution
 
-Switch to the branch `ex1-solution` on GitHub and look at the files `src/index.js`, `src/components/ChatRoom.js` and `src/reducers/index.js` (or stash your changes and merge it into your master)
+Switch to the branch `ex1-solution` on GitHub and look at the files `src/index.js`, `src/components/ChatRoom.js` and `src/reducers/index.js` (or stash your changes and checkout the solution branch)
 
 Note that in this example Redux *adds* complexity, rather than simplifying the application. This is because the 
 example is intentionally naive and only for illustrative purposes; in the real world, Redux would be overkill for such an application.

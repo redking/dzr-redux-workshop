@@ -32,4 +32,4 @@ use Array methods and `Object.assign`
 
 ## Solution
 
-Switch to the branch `ex2-solution` on GitHub (or stash your changes and merge it into your master).
+Switch to the branch `ex2-solution` on GitHub (or stash your changes and checkout the solution branch).

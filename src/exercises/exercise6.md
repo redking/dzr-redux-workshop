@@ -59,4 +59,4 @@ after the login status
 
 ## Solution
 
-Switch to branch `ex6-solution` on GitHub (or stash your changes and merge it into your master).
+Switch to branch `ex6-solution` on GitHub (or stash your changes and checkout the solution branch).

@@ -17,8 +17,8 @@ cycle through different colors for the site header.
 
 Each exercise examines some part of the Redux ecosystem.
 
-As each exercise builds upon the last you can, if you want to, stash your changes after each exercise and merge the solution branch before continuing e.g. from master
-do `git merge ex1-solution`.
+As each exercise builds upon the last you can, if you want to, stash your changes after each exercise and checkout the solution branch for the current exercise before
+continuing to the next.
 
 ## Links
 

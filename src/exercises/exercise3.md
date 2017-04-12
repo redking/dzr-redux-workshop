@@ -26,4 +26,4 @@ to return to the previous state after every add or delete
 
 ## Solution
 
-Switch to the branch `ex3-solution` on GitHub (or stash your changes and merge it into your master)
+Switch to the branch `ex3-solution` on GitHub (or stash your changes and checkout the solution branch)

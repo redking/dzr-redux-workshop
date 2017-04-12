@@ -78,4 +78,4 @@ to the action `UPDATE_LOGIN_STATUS`
 
 ## Solution
 
-Switch to branch `ex4-solution` on GitHub (or stash your changes and merge it into your master).
+Switch to branch `ex4-solution` on GitHub (or stash your changes and checkout the solution branch).

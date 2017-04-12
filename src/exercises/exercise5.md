@@ -128,4 +128,4 @@ Now reload the page and try to add a message. Why does it no longer work?
 
 ## Solution
 
-For an example solution, open branch `ex5-solution` on GitHub (or stash your changes and merge it into your master).
+For an example solution, open branch `ex5-solution` on GitHub (or stash your changes and checkout the solution branch).
