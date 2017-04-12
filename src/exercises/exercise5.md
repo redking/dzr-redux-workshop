@@ -7,12 +7,12 @@ these steps
 
 ### Step 1 - Inject the store into our component using `<Provider>`
 
-First, we have to change the way in which the store is used by the application
+First, we have to change the way in which the store is used by the application:
 
 1. In `src/index.js`, import `Provider` from `react-redux`
 `import {Provider} from 'react-redux';`
 
-2. Copy all the attributes from `<ChatRoom>` into a text file somewhere, along with the `_fetch` and `_fetchStatus` functions - we'll use these later
+2. Copy all the attributes from `<ChatRoom>` into a temporary text file, along with the `_fetch` and `_fetchStatus` functions - we'll use these later
 
 3. Replace the `render` function with a simple call to `ReactDOM.render`, wrapping your application in a `<Provider>` tag.
 
@@ -39,9 +39,9 @@ Open the file `src/reducers/color.js` and make the following changes:
 1. Add the constant CHANGE_COLOR to the top of the file, namespaced to the reducer
 `const CHANGE_COLOR = '@deezer/reducers/color/CHANGE_COLOR';`
 
-2. Use this constant in the `switch` statement too
+2. Use this constant in the `switch` statement aswell
 
-3. Add the `onChangeColor` action creator under the reducer. Write it like so 
+3. Add the `onChangeColor` action creator under the reducer `switch`. Write it like so:
 
 ```
 export const changeColor = color => ({
@@ -67,7 +67,7 @@ A container component is one that connects to the Redux store, passing props and
 make `ChatRoom` our only container component; in a complex app, you might have many nested container components. In general though, it's better
 to keep them small in number.
 
-To convert `ChatRoom`, complete the following steps
+To convert `ChatRoom`, complete the following steps:
 
 1. Import `connect` from `react-redux` at the top of the file
 `import {connect} from 'react-redux';`
@@ -81,7 +81,7 @@ import {fetchStatus} from '../reducers/user';
 ```
 
 3. At the bottom of the file, before the export, add a function called `mapStateToProps`, that will map our Redux application state
-to the components props
+to the component's props
 
 ```
 const mapStateToProps = state => ({
@@ -102,12 +102,14 @@ This returns a function that we call with `ChatRoom` as its single argument.
  
 The second argument passed to `connect` is important to understand. At the top of the file, we imported our action creators as
 plain functions. We pass these to `connect` where they are hooked up to our component and returned as props of the same name on the component. This
-means that in our code we must use `this.props.addMessage` rather than the `addMessage` import, as the `addMessage` import is just a plain function that
- hasn't been activated by the call to `connect`
+means that in our code we must use `this.props.addMessage` rather than the `addMessage` import, as the `addMessage` import is just a plain function that 
+hasn't been activated by the call to `connect`.
  
 5. Finally, change the references to the action creators in the existing code (from `this.props.onAddMessage` to `this.props.onAddMessage`, for example).
 
 ### Step 4 - Test with mutated state
+
+Once everything is working, perform this test to see how `react-redux` benefits from our use of immutable data.
 
 Open the `messages.js` reducer. When we add a new message, we use the spread operator to always return a new object. Replace this with a
 state mutation instead
@@ -126,4 +128,4 @@ Now reload the page and try to add a message. Why does it no longer work?
 
 ## Solution
 
-For an example solution, open branch `ex5-solution` on GitHub.
+For an example solution, open branch `ex5-solution` on GitHub (or stash your changes and merge it into your master).

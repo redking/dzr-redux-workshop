@@ -3,7 +3,7 @@
 Next we'll look at how to calculate derived data using the `reselect` library.
 
 Derived data is anything that results from a calculation performed on the state data, but that isn't necessarily part of the application state itself. `reselect`
-lets us calculate this data only if the state has changed, so we expensive computations only when we need them.
+lets us calculate this data only if the state has changed, so we perform expensive computations only when we need them.
 
 Find more about reselect here https://github.com/reactjs/reselect
 
@@ -16,7 +16,7 @@ Write a selector that returns the number of times the word "Deezer" appears in a
 1. This selector concerns messages, so it should be in the messages reducer. Start by importing `createSelector` from `reselect` at the top of `messages.js`
 `import {createSelector} from 'reselect';`
 
-2. Add selectors after the action creators section. There are two types of selectors - simple selectors and memoized selectors.
+2. Add selectors after the action creator section. There are two types of selectors - simple selectors and memoized selectors.
  
 A simple selector takes two arguments, `state` and `props` and returns some part of either. 
 
@@ -51,7 +51,7 @@ export const getDeezerCount = createSelect(
 );
 ```
 
-3. Import `getMessages` into the `ChatRoom` component and add it to the state in `mapStateToProps`. Display the value as another badge, 
+3. Import `getMessages` into the `ChatRoom` component and use it in `mapStateToProps` to add a `deezerCount` prop. Display the value as another badge, 
 after the login status
 ```
 <span className="badge">{this.props.deezerCount} Deezer references</span>
@@ -59,4 +59,4 @@ after the login status
 
 ## Solution
 
-Switch to branch `ex6-solution` on GitHub.
+Switch to branch `ex6-solution` on GitHub (or stash your changes and merge it into your master).

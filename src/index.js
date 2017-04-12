@@ -1,30 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import thunkMiddleware from 'redux-thunk';
-import {createStore, applyMiddleware, compose} from 'redux';
+// import {createStore} from 'redux';
 
 // Application
-import ChatRoom from './components/ChatRoom.solution';
+import ChatRoom from './components/ChatRoom';
+// import rootReducer from './reducers';
 import './index.css';
 
-// Reducers
-import rootReducer from './reducers/index.solution';
-
 // Create store from reducer and enable Redux devtools
-const store = createStore(rootReducer, compose(
-
-	applyMiddleware(thunkMiddleware),
-
-	// Enable development tools
+/* const store = createStore(
+ 	rootReducer,
 	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-));
+); */
 
+// TODO Replace this with a function that can be passed to `store.subscribe`
 ReactDOM.render(
-		<div className="App">
-			<Provider store={store}>
-				<ChatRoom />
-			</Provider>
-		</div>,
+	<div className="App">
+		<ChatRoom />
+	</div>,
 	document.getElementById('root')
 );

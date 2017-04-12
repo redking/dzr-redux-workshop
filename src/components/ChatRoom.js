@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+
+// Components
+import Messages from './Messages';
+
+// Assets
 import logo from '../logo.svg';
 import '../App.css';
-
-// components
-import Messages from './Messages';
 
 class ChatRoom extends Component {
 

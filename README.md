@@ -2,22 +2,23 @@
 
 This workshop examines the motivation and principles behind the Redux state management library.
 
-Note that Redux is intended to be used only in particularly situations where state management using pure React becomes
-cumbersome. So, in the real world, you would never use Redux in the examples we use for these exercises: they are only
-designed to illuminate some of the ideas behind Redux.
-
 ## Getting started
 
-1. Run `npm install`
-2. Launch the app with `npm start`
-3. Launch the tests with `npm test`
-4. [Install the Redux Development Tools extension for Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+1. [Install the Redux Development Tools extension for Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+2. Run `npm install`
+3. Launch the app with `npm start`
+
+Changes to the JS will not automatically rebuild and reload the page.
 
 ## Description
 
-A pretend Redux "chatroom" - just a div that displays the text and timestamp for added messages. A button at the bottom lets you
+The sample app is a pretend Redux "chatroom" - just a div that displays the text and timestamp for added messages. A button at the bottom lets you
 cycle through different colors for the site header.
 
+Each exercise examines some part of the Redux ecosystem.
+
+As each exercise builds upon the last you can, if you want to, stash your changes after each exercise and merge the solution branch before continuing e.g. from master
+do `git merge ex1-solution`.
 
 ## Links
 
