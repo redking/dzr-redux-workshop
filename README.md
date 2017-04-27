@@ -1,4 +1,4 @@
-# Redux Workshop 1
+# Redux Workshop
 
 This workshop examines the motivation and principles behind the Redux state management library.
 
@@ -12,7 +12,7 @@ Changes to the JS will not automatically rebuild and reload the page.
 
 ## Description
 
-The sample app is a pretend Redux "chatroom" - just a div that displays the text and timestamp for added messages. A button at the bottom lets you
+The sample app is a fake Redux "chatroom" - just a div that displays the text and timestamp for added messages. A button at the bottom lets you
 cycle through different colors for the site header.
 
 Each exercise examines some part of the Redux ecosystem.

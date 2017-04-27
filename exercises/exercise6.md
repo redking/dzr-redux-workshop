@@ -1,6 +1,6 @@
 # Exercise 6 - Selectors
 
-Next we'll look at how to calculate derived data using the `reselect` library.
+In this final exercise we'll look at how to calculate derived data using the `reselect` library.
 
 Derived data is anything that results from a calculation performed on the state data, but that isn't necessarily part of the application state itself. `reselect`
 lets us calculate this data only if the state has changed, so we perform expensive computations only when we need them.
@@ -23,7 +23,7 @@ A simple selector takes two arguments, `state` and `props` and returns some part
 For example
 
 ```
-const getAlbum = (state, props) => state.albums[props.id]; 
+const getAlbum = (state, props) => state.albums[props.id]; // Return the album with the given id
 ```
 
 A memoized selector accepts one or more simple selectors as its first argument, and performs some operation on their return values
@@ -32,6 +32,10 @@ in its second argument.
 For example:
 
 ```
+// Simple selector
+const getAlbum = (state, props) => state.albums[props.id]; // Return the album with the given id
+
+// Memoized selector
 export const getFormattedAlbumData = createSelector(
 	getAlbum,
 	album => formatDate(album.DATE)

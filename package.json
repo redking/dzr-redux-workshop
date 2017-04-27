@@ -1,7 +1,6 @@
 {
-  "name": "dzr-redux-workshop-1",
+  "name": "dzr-redux-workshop",
   "version": "0.1.0",
-  "private": true,
   "devDependencies": {
     "react-scripts": "^0.9.5"
   },

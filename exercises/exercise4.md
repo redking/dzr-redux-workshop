@@ -24,6 +24,7 @@ function _doSomething() {
 	}
 }
 
+// the action creator 
 onDoSomething={() => store.dispatch(_doSomething())}
 ```
 
@@ -47,7 +48,7 @@ const store = createStore(rootReducer, compose(
 ));
 ```
 
-1. Create a new reducer `user.js` with the following initial state: 
+4. Create a new reducer `user.js` with the following initial state: 
 
 ```
 {
@@ -55,7 +56,7 @@ const store = createStore(rootReducer, compose(
 }
 ```
 
-2. Add the following private function to  `src/index.js`:
+5. Add the following private function to  `src/index.js`:
 
 ```
 function _fetchStatus(done) {
@@ -65,12 +66,14 @@ function _fetchStatus(done) {
 }
 ```
 
-3. Pass a new action to `ChatRoom` that returns a function, like in the above examples, and calls `_fetchStatus`, dispatching the result
+This represents the fake asynchronous process
+
+6. Pass a new action creator called `onFetchStatus` to `ChatRoom` that returns a function, like in the above examples, and calls `_fetchStatus`, dispatching the result
 to the action `UPDATE_LOGIN_STATUS`
 
-4. The action we pass as a prop to `ChatRoom` should be invoked in the `componentWillMount` callback
+7. The `onFetchStatus` action creator we passed to `ChatRoom` should be invoked in the `componentWillMount` callback
 
-5. Represent the user status by adding a badge to the `ChatRoom` header
+8. Represent the user status by adding a badge to the `ChatRoom` header
 
 ```
 <span className="badge">{this.props.user.loggedIn ? 'Logged in' : 'Logged out'}</span>
