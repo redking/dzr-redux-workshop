@@ -10,7 +10,7 @@ Open the `Message.js` component and add the following before the `<aside>` tag
 </button>
 ```
 
-Implement the action creator, allowing you to delete any message in the list. 
+Implement the action creator to delete a message in the list. 
 
 ## Tips
 
