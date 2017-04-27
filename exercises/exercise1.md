@@ -37,14 +37,14 @@ Next, in our own project, look at the following files:
 3. `src/reducers/index.js`
 - Remember that you must return a new object whenever the state has changed, as you can't change the state directly. 
 
-So, for example, this is incorrect:
+So, for example, this is incorrect as it modifies the state:
 
 ```
 state.users.push(user);
 return state;
 ```
 
-Instead you should use the spread operator:
+Instead you should use the spread operator to return a new object:
  
 ```
 return {
@@ -56,16 +56,12 @@ return {
 Alternatively, you could use `Object.assign` with `Array.slice`:
 
 ```
-const users = state.users.slice();
+const users = state.users.slice(); // Make a copy
 users.push(user);
 return Object.assign({}, state, {users});
 ```
 
-Once the store is setup, you can open the Chrome console and select the Redux tab to inspect state changes using Redux Devtools.
-
-## TODO 
-
-Since we return a new object every time, how would you implement `shouldComponentUpdate` in the `ChatRoom` component?
+Once the store is setup, open the Chrome console and select the Redux tab to inspect state changes using Redux Devtools.
 
 ## Solution
 
