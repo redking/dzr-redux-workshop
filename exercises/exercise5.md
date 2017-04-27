@@ -39,9 +39,9 @@ Open the file `src/reducers/color.js` and make the following changes:
 1. Add the constant CHANGE_COLOR to the top of the file, namespaced to the reducer
 `const CHANGE_COLOR = '@deezer/reducers/color/CHANGE_COLOR';`
 
-2. Use this constant in the `switch` statement aswell
+2. Use this constant in the `switch` statement instead of a hardcoded string
 
-3. Add the `onChangeColor` action creator under the reducer `switch`. Write it like so:
+3. Add the `onChangeColor` action creator under the reducer's `switch` statement. Write it like so:
 
 ```
 export const changeColor = color => ({
@@ -91,6 +91,8 @@ const mapStateToProps = state => ({
 });
 ```
 
+To keep things simple, we give the props the same name as the attributes on the application state.
+
 4. Next, we need to modify the default export, using `connect`, to hook everything up.
 `export default connect(mapStateToProps, {addMessage, deleteMessage, undoMessage, changeColor, fetchStatus})(ChatRoom);`
 
@@ -98,18 +100,22 @@ const mapStateToProps = state => ({
 1. The `mapStateToProps` function
 2. A object that maps our action creators to props.
 
-This returns a function that we call with `ChatRoom` as its single argument.
+Again, like in `mapStateToProps`, we've kept things simple by giving the props the same name as the action creators we imported at the top of the file.
+
+This expression returns a function that we call with `ChatRoom` as its single argument.
  
 The second argument passed to `connect` is important to understand. At the top of the file, we imported our action creators as
 plain functions. We pass these to `connect` where they are hooked up to our component and returned as props of the same name on the component. This
 means that in our code we must use `this.props.addMessage` rather than the `addMessage` import, as the `addMessage` import is just a plain function that 
 hasn't been activated by the call to `connect`.
  
-5. Finally, change the references to the action creators in the existing code (from `this.props.onAddMessage` to `this.props.onAddMessage`, for example).
+5. Finally, change the references to the action creators in the existing code (from `this.props.onAddMessage` to `this.props.addMessage`, for example).
 
 ### Step 4 - Test with mutated state
 
-Once everything is working, perform this test to see how `react-redux` benefits from our use of immutable data.
+You can start up the app now and verify that everything is working.
+
+If there are no errors, perform this test to see how `react-redux` benefits from our use of immutable data.
 
 Open the `messages.js` reducer. When we add a new message, we use the spread operator to always return a new object. Replace this with a
 state mutation instead
