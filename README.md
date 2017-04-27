@@ -4,9 +4,10 @@ This workshop examines the motivation and principles behind the Redux state mana
 
 ## Getting started
 
-1. [Install the Redux Development Tools extension for Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+1. Clone this repo
 2. Run `npm install`
-3. Launch the app with `npm start`
+3. [Install the Redux Development Tools extension for Chrome](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
+4. Launch the app with `npm start`
 
 Changes to the JS will not automatically rebuild and reload the page.
 
