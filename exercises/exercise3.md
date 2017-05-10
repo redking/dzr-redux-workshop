@@ -36,7 +36,7 @@ export default (state = 'black', action) => {
 application state. This should also be the default export.
 
 - In the `messages.js` reducer, store the state in a `history` array before every state change. Use this to implement an "undo" button, allowing you
-to return to the previous state after every add or delete. Add the delete button after the "Change header color" button in the `ChatRoom` component
+to return to the previous state after every add or delete. Add the undo button after the "Change header color" button in the `ChatRoom` component
 
 ```
 <button type="button" className="btn btn-default cycle" onClick={e => this.props.onUndoMessage()}>
