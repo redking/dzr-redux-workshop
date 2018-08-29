@@ -130,7 +130,7 @@ if (action.message.text) {
 return state;
 ```
 
-Now reload the page and try to add a message. Why does it no longer work? 
+Now reload the page and try to add a message. Why does it no longer work? [hint](https://reactjs.org/tutorial/tutorial.html#why-immutability-is-important)  
 
 ## Solution
 

@@ -16,7 +16,7 @@ Write a selector that returns the number of times the word "Deezer" appears in a
 1. This selector concerns messages, so it should be in the messages reducer. Start by importing `createSelector` from `reselect` at the top of `messages.js`
 `import {createSelector} from 'reselect';`
 
-2. Add selectors after the action creator section. There are two types of selectors - simple selectors and memoized selectors.
+2. Add selectors after the action creator section. There are two types of selectors - simple selectors and memorized selectors.
  
 A simple selector takes two arguments, `state` and `props` and returns some part of either. 
 
@@ -26,7 +26,7 @@ For example
 const getAlbum = (state, props) => state.albums[props.id]; // Return the album with the given id
 ```
 
-A memoized selector accepts one or more simple selectors as its first argument, and performs some operation on their return values
+A memorized selector accepts one or more simple selectors as its first argument, and performs some operation on their return values
 in its second argument.
 
 For example:
